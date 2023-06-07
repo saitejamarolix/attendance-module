@@ -1,0 +1,7 @@
+<h1>Employee Check-In</h1>
+<form method="POST" action="{% url 'check_in' %}">
+  {% csrf_token %}
+  <label for="name">Name:</label>
+  <input type="text" name="name" required>
+  <button type="submit">Check In</button>
+</form>

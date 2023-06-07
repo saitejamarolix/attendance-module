@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Report</title>
+</head>
+<body>
+    <h1>Attendance Report</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Check-In</th>
+                <th>Check-Out</th>
+                <th>Working Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.check_in }}</td>
+                <td>{{ employee.check_out|default:"-" }}</td>
+                <td>
+                    {% if employee.working_hours %}
+                        {{ employee.working_hours }}
+                    {% else %}
+                        0
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

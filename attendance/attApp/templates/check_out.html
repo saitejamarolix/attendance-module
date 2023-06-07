@@ -1,0 +1,9 @@
+<h1>Employee Check-Out</h1>
+{% for employee in employees %}
+  <p>{{ employee.name }}</p>
+  <form method="POST" action="{% url 'check_out' %}">
+    {% csrf_token %}
+    <input type="hidden" name="name" value="{{ employee.name }}">
+    <button type="submit">Check Out</button>
+  </form>
+{% endfor %}
